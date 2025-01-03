@@ -4,7 +4,8 @@ import {
   text,
   timestamp,
   pgTable,
-  uuid
+  uuid,
+  json
 } from "drizzle-orm/pg-core";
 import { userSchema } from "./user";
 import { InferInsertModel, InferSelectModel } from "drizzle-orm";
@@ -18,6 +19,14 @@ export const jobDescriptionsSchema = pgTable("job_descriptions", {
   description: text("description").notNull(),
   location: varchar("location", { length: 255 }),
   experienceRequired: integer("experience_required"),
+  keyword: json("keyword")
+    // .$type<QuantityProduct | BuyItemProduct>()
+    .array()
+    .notNull(),
+  job_requirements: json("job_requirements")
+    // .$type<>()
+    .array()
+    .notNull(),
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow()
 });

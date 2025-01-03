@@ -10,10 +10,10 @@ export async function getMatches(
   const { id } = request.params;
 
   try {
-    const match = await db.query.matchesSchema.findMany({
-      where: eq(matchesSchema.id, id)
+    const allMatches = await db.query.matchesSchema.findMany({
+      where: eq(matchesSchema.jobId, id)
     });
-    return response.status(200).json({ match });
+    return response.status(200).json({ allMatches });
   } catch (error) {
     return response.status(500);
   }

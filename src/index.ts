@@ -6,10 +6,14 @@ import express, {
 
 const app = express();
 const port = 3000;
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 app.get("/", (_req: Request, res: Response) => {
   res.send("Hello, world!");
 });
+
+
 
 app.use((err: Error, _req: Request, res: Response, _next: NextFunction) => {
   console.error(err);
