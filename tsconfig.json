@@ -15,7 +15,7 @@
       "skipLibCheck": true,
       "baseUrl": "./",
       "forceConsistentCasingInFileNames": true,
-      "paths": { "$/*": ["./src/*"] },
+      "paths": { "@/*": ["./src/*"] },
       // "types": ["jest"],
       // "noUnusedLocals": true
   },

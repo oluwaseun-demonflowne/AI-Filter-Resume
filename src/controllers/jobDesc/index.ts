@@ -1,6 +1,6 @@
-import { db } from "$/db/connect";
-import { jobDescriptionsSchema } from "$/db/schema/description";
-import { CreateJobDescriptionBody } from "$/types";
+import { db } from "@/db/connect";
+import { jobDescriptionsSchema } from "@/db/schema/description";
+import { CreateJobDescriptionBody } from "@/types";
 import { type Request, type Response } from "express";
 
 export async function newJobDescription(

@@ -1,6 +1,6 @@
-import { db } from "$/db/connect";
-import { resumeSchema } from "$/db/schema";
-import { CreateResumeBody } from "$/types";
+import { db } from "@/db/connect";
+import { resumeSchema } from "@/db/schema";
+import { CreateResumeBody } from "@/types";
 import { type Request, type Response } from "express";
 
 export async function newResume(

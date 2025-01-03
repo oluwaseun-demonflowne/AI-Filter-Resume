@@ -1,7 +1,7 @@
-import { db } from "$/db/connect";
-import { userSchema } from "$/db/schema/user";
-import { CreateUserBody } from "$/types";
-import { encryptPassword } from "$/utils/encryptPassword";
+import { db } from "@/db/connect";
+import { userSchema } from "@/db/schema/user";
+import { CreateUserBody } from "@/types";
+import { encryptPassword } from "@/utils/encryptPassword";
 import { type Request, type Response } from "express";
 
 export async function newUser(
