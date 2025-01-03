@@ -10,8 +10,7 @@ export async function getJobDesc(
   const { id } = request.params;
 
   try {
-    
-    const job = await db.query.jobDescriptionsSchema.findMany({
+    const job = await db.query.jobDescriptionsSchema.findOne({
       where: eq(jobDescriptionsSchema.id, id)
     });
     return response.status(200).json({ job });
