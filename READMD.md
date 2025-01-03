@@ -1,0 +1,1 @@
+"A platform that allows recruiters to upload job descriptions, and the system matches candidates’ resumes using AI"

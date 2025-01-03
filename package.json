@@ -4,15 +4,35 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "npx drizzle-kit migrate",
+    "db:update": "npm run db:generate && npm run db:migrate",
+    "dev": "nodemon ./src/index.ts",
+    "format": "prettier --write ./src",
+    "lint": "eslint ./src "
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@neondatabase/serverless": "^0.10.4",
+    "@typescript-eslint/eslint-plugin": "^8.19.0",
     "better-auth": "^1.1.8",
     "dotenv": "^16.4.7",
+    "drizzle-orm": "^0.38.3",
+    "drizzle-zod": "^0.6.1",
     "express": "^4.21.2",
-    "prettier": "^3.4.2"
+    "nodemailer": "^6.9.16",
+    "nodemon": "^3.1.9",
+    "prettier": "^3.4.2",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "drizzle-kit": "^0.30.1",
+    "eslint": "^9.17.0",
+    "ts-node": "^10.9.2",
+    "typescript-eslint": "^8.19.0"
   }
 }
