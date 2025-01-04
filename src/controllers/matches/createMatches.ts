@@ -6,15 +6,15 @@ import { type Request, type Response } from "express";
 export async function newMatches(
   request: Request<object, object, CreateMatchBody, object>,
   response: Response
-): Promise<Response> {
+): Promise<void> {
   const { jobId, matchPercentage, resumeId, status } = request.body;
 
   try {
     await db
       .insert(matchesSchema)
       .values({ jobId, matchPercentage, resumeId, status });
-    return response.status(200);
+    response.status(200);
   } catch (error) {
-    return response.status(500);
+    response.status(500);
   }
 }

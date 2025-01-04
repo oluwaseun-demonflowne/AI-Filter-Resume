@@ -6,14 +6,14 @@ import { type Request, type Response } from "express";
 export async function getResume(
   request: Request<{ id: string }, object, object, object>,
   response: Response
-): Promise<Response> {
+): Promise<void> {
   const { id } = request.params;
   try {
     const resume = await db.query.resumeSchema.findOne({
       where: eq(resumeSchema.id, id)
     });
-    return response.status(200).json({ resume });
+    response.status(200).json({ resume });
   } catch (error) {
-    return response.status(500);
+    response.status(500);
   }
 }

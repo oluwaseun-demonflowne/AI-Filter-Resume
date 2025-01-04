@@ -6,7 +6,7 @@ import { type Request, type Response } from "express";
 export async function newJobDescription(
   request: Request<object, object, CreateJobDescriptionBody, object>,
   response: Response
-): Promise<Response> {
+): Promise<void> {
   const {
     recruiterId,
     description,
@@ -27,8 +27,8 @@ export async function newJobDescription(
       job_requirements,
       keyword
     });
-    return response.status(200);
+     response.status(200);
   } catch (error) {
-    return response.status(500);
+     response.status(500);
   }
 }

@@ -6,15 +6,15 @@ import { type Request, type Response } from "express";
 export async function getAllMatches(
   request: Request<{ id: string }, object, object, object>,
   response: Response
-): Promise<Response> {
+): Promise<void> {
   const { id } = request.params;
 
   try {
     const allMatches = await db.query.matchesSchema.findMany({
       where: eq(matchesSchema.jobId, id)
     });
-    return response.status(200).json({ allMatches });
+    response.status(200).json({ allMatches });
   } catch (error) {
-    return response.status(500);
+    response.status(500);
   }
 }

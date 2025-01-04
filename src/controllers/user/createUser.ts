@@ -7,7 +7,7 @@ import { type Request, type Response } from "express";
 export async function newUser(
   request: Request<object, object, CreateUserBody, object>,
   response: Response
-): Promise<Response> {
+): Promise<void> {
   const { email, passwordHash, role, fullName } = request.body;
 
   try {
@@ -15,8 +15,8 @@ export async function newUser(
     await db
       .insert(userSchema)
       .values({ email, passwordHash: encryptPass, role, fullName });
-    return response.status(200);
+    response.status(200);
   } catch (error) {
-    return response.status(500);
+    response.status(500);
   }
 }
